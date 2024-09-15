@@ -1,7 +1,10 @@
+CPP=$(PICO_TOOLCHAIN_PATH)/bin/arm-none-eabi-cpp
+
+# all dependent on firmware.elf
+all: firmware.elf
+
 hello.txt:
 	echo "hello world!" > hello.txt
-
-CPP=$(PICO_TOOLCHAIN_PATH)/bin/arm-none-eabi-cpp
 
 main.i: main.c
 	$(CPP) main.c > main.i
@@ -29,6 +32,3 @@ OBJS=$(patsubst %.c,%.o,$(SRC))
 
 firmware.elf: $(OBJS)
 	$(LD) -o $@ $^
-
-# all dependent on firmware.elf
-all: firmware.elf
