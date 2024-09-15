@@ -1,1 +1,6 @@
 hello.txt
+firmware.elf
+main.i
+main.o
+main.s
+second.o
