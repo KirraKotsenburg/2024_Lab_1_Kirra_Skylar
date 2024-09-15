@@ -8,7 +8,7 @@ main.i: main.c
 
 # Remove build artifacts
 clean:
-	rm -f main.i hello.txt
+	rm -f main.i hello.txt second.o
 
 .PHONY: clean
 
@@ -18,5 +18,7 @@ AS=$(PICO_TOOLCHAIN_PATH)/bin/arm-none-eabi-as
 main.s: main.i
 	$(CC) -S main.i
 
-main.o: main.s
-	$(AS) main.s -o main.o
+# Implicit rule
+%.o: %.s
+	$(AS) $< -o $@
+
