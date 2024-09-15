@@ -1,3 +1,3 @@
-int main(void) {
+int second(void) {
     return 0;
 }
