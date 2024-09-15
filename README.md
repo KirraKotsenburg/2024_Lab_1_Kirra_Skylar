@@ -8,4 +8,4 @@ Repo:		https://github.com/KirraKotsenburg/2024_Lab_1_Kirra_Skylar.git
 This project examines C compilation for embedded systems. Implementing a makefile and 
 understanding the unix make tool were the core objective of the project.
 
-![example workflow](https://github.com/<OWNER>/<REPOSITORY>/actions/workflows/main.yml/badge.svg)
+![example workflow](https://github.com/KirraKotsenburg/2024_Lab_1_Kirra_Skylar/actions/workflows/main.yml/badge.svg)
