@@ -8,9 +8,9 @@ main.i: main.c
 
 # Remove build artifacts
 clean:
-	rm -f main.i hello.txt second.o
+	rm -f main.i hello.txt second.o main.o main.s firmware.elf
 
-.PHONY: clean
+.PHONY: clean all
 
 CC=$(PICO_TOOLCHAIN_PATH)/bin/arm-none-eabi-gcc
 AS=$(PICO_TOOLCHAIN_PATH)/bin/arm-none-eabi-as
@@ -22,3 +22,13 @@ main.s: main.i
 %.o: %.s
 	$(AS) $< -o $@
 
+# Linker Set up
+LD=$(PICO_TOOLCHAIN_PATH)/bin/arm-none-eabi-ld
+SRC=main.c second.c
+OBJS=$(patsubst %.c,%.o,$(SRC))
+
+firmware.elf: $(OBJS)
+	$(LD) -o $@ $^
+
+# all dependent on firmware.elf
+all: firmware.elf
